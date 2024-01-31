@@ -4,10 +4,14 @@ import os
 import openai
 from PIL import Image
 
-#logo = Image.open("cp_logo.jpg")
+uhg_logo = Image.open("uhg.png")
+uhc_small_logo = Image.open("uhc_small.png")
+optum_logo = Image.open("optum.png")
 
-st.set_page_config(page_title="Assistant", initial_sidebar_state="auto")# , page_icon=logo)
-# st.sidebar.image(logo)
+st.set_page_config(page_title="Assistant", initial_sidebar_state="auto"), page_icon=uhc_small_logo)
+st.sidebar.image(uhg_logo)
+st.sidebar.divider()
+st.sidebar.image(optum_logo)
 st.sidebar.title("Welcome to your personal AI Assistant")
 st.sidebar.divider()
 st.sidebar.subheader("How can I help you today?")
@@ -20,15 +24,17 @@ openai.api_key = st.secrets["KEY"]
 
 conversation = [
 
-    {"role": "system", "content": "You are a  AI assistant built to answer the user's questions. You can refer to some websites like"
-                                    "https://healthinsuranceratings.ncqa.org/2019/search/Commercial/MI and "
-                                     "https://www.hopkinsmedicine.org/-/media/johns-hopkins-health-plans/documents/2022_hedis_quality_measures_tip_sheet.pdf"
-                                     "for HEDIS score information. Try to collect more information about "
-                                    " Blue Cross Blue Shield of Michigan and its competitors. Also, information about HEDIS scores, the factors that influence it"
-                                     " and how to improve it is super valuable"
+    {"role": "system", "content": "You are an AI assistant for United Health Group, or UHG for short, built to answer the user's questions."
+                                    "You are to answer questions about United Health Group, Optum or United Healthcare, or other services and products"
+                                     "associated with UHG"
+                                     "You can refer to some websites like"
+                                    "https://www.uhc.com/ or https://www.optum.com/en/ or https://www.unitedhealthgroup.com/"
+                                     "You can also use these websites and quote information from them, or even provide direct links to them if asked."
+                                     "You are an assistant built only for these brands, so do not answer any questions about competitor organisations"
+                                     "If asked about competitors, or any questions outside of United Health Group's area of operation, simply say that"
+                                     "is outside of your domain and that your purpose is to provide information about UHG services and products"
     
     }
-    
     
     
     
@@ -83,7 +89,7 @@ if prompt:
     chat_response = completion.choices[0].message.content
 
     thinking_msg.empty()
-    with st.chat_message("Assistant"): #, avatar=logo):
+    with st.chat_message("Assistant", avatar=uhc_small_logo):
         st.write(chat_response)
 
     message = {"role": "assistant", "content": chat_response}
