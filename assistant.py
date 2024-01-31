@@ -13,7 +13,6 @@ st.sidebar.image(uhg_logo)
 st.sidebar.divider()
 st.sidebar.image(optum_logo)
 st.sidebar.title("Welcome to your personal AI Assistant")
-st.sidebar.divider()
 st.sidebar.subheader("How can I help you today?")
 
 openai.api_type = st.secrets["TYPE"]
@@ -58,7 +57,7 @@ if "messages" not in st.session_state.keys():
 
 for message in st.session_state.messages:
     if message["role"] == "assistant":
-        with st.chat_message(message["role"]): #, avatar=logo):
+        with st.chat_message(message["role"], avatar=uhc_small_logo):
             st.write(message["content"])
     else:
         with st.chat_message(message["role"]):
