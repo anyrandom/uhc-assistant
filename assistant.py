@@ -8,7 +8,7 @@ uhg_logo = Image.open("uhg.png")
 uhc_small_logo = Image.open("uhc_small.png")
 optum_logo = Image.open("optum.png")
 
-st.set_page_config(page_title="Assistant", initial_sidebar_state="auto"), page_icon=uhc_small_logo)
+st.set_page_config(page_title="Assistant", initial_sidebar_state="auto", page_icon=uhc_small_logo)
 st.sidebar.image(uhg_logo)
 st.sidebar.divider()
 st.sidebar.image(optum_logo)
