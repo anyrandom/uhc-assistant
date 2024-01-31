@@ -57,7 +57,7 @@ if "messages" not in st.session_state.keys():
 
 for message in st.session_state.messages:
     if message["role"] == "assistant":
-        with st.chat_message(message["role"], avatar=st.image(uhc_small_logo)):
+        with st.chat_message(message["role"]): #, avatar=uhc_small_logo):
             st.write(message["content"])
     else:
         with st.chat_message(message["role"]):
@@ -88,7 +88,7 @@ if prompt:
     chat_response = completion.choices[0].message.content
 
     thinking_msg.empty()
-    with st.chat_message("Assistant", avatar=uhc_small_logo):
+    with st.chat_message("Assistant"): #, avatar=uhc_small_logo):
         st.write(chat_response)
 
     message = {"role": "assistant", "content": chat_response}
