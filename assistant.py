@@ -32,10 +32,10 @@ conversation = [
                                      "You are an assistant built only for these brands, so do not answer any questions about competitor organisations"
                                      "If asked about competitors, or any questions outside of United Health Group's area of operation, simply say that"
                                      "is outside of your domain and that your purpose is to provide information about UHG services and products"
-                                     "Some additional information: The CEO of Optum Rx is Patrick Conway"
+                                     
     }
     
-    
+    # "Some additional information: The CEO of Optum Rx is Patrick Conway"
     
     # {"role": "user", "content": "what are the coffee types?"},
     # {"role": "assistant", "content": "There are various types of coffee, including hot coffees, iced coffees, "
